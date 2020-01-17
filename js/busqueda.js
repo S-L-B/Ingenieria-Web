@@ -314,7 +314,7 @@ function buildHtmlTable(selector) {
   for (var i = 0; i < myList.length; i++) {
       var row$ = $('<tr/>');
       var datos=[]
-      for (var colIndex = 0; colIndex < columns.length; colIndex++) {
+      for (var colIndex = 0; colIndex < columns.length-1; colIndex++) {
         var cellValue = myList[i][columns[colIndex]];
         if (typeof cellValue =="object" && cellValue.length != 1){
           var aux="";
@@ -330,7 +330,6 @@ function buildHtmlTable(selector) {
       }
 
 
-
       /*cellValue='<div class="load-more-btn text-center">'
             +'<a href="https://www.todostuslibros.com/busquedas/?keyword='+
             datos[0]+' '+datos[1]
@@ -338,20 +337,26 @@ function buildHtmlTable(selector) {
         '</div>'
       row$.append($('<td/>').html(cellValue));
 */
+cellValue='<button onclick="fichaTecnica('+datos+')" class="btn world-btn">Ficha Tecnica</a>'
+row$.append($('<td/>').html(cellValue));
 
-/*
-      cellValue='<div class="load-more-btn text-center">'
+
+      /*cellValue='<div class="load-more-btn text-center">'
                   +'<a href="https://www.amazon.es/s?k='+
                 datos[0]+' '+datos[1]
                 +'" class="btn world-btn">Lugar de Venta</a>'+
                 '</div>'
       row$.append($('<td/>').html(cellValue));
-
-
-      $(selector).append(row$);
 */
 
+      $(selector).append(row$);
+
+
   }
+}
+
+function fichaTecnica(datos){
+  location.assign='https://twitter.com/home';
 }
 
 // Adds a header row to the table and returns the set of columns.
@@ -360,7 +365,6 @@ function buildHtmlTable(selector) {
 function addAllColumnHeaders(myList, selector) {
   var columnSet = [];
   var headerTr$ = $('<tr/>');
-
   for (var i = 0; i < myList.length; i++) {
     var rowHash = myList[i];
     for (var key in rowHash) {
@@ -368,17 +372,14 @@ function addAllColumnHeaders(myList, selector) {
           columnSet.push(key);
           headerTr$.append($('<th/>').html(key));
         }
-
     }
   }
-/*
-  key="Fisico"
+
+  key="Ficha Tecnica"
   columnSet.push(key);
   headerTr$.append($('<th/>').html(key));
-  key="Online"
-  columnSet.push(key);
-  headerTr$.append($('<th/>').html(key));
+
   $(selector).append(headerTr$);
-*/
+
   return columnSet;
 }
