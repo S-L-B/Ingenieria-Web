@@ -337,7 +337,7 @@ function buildHtmlTable(selector) {
         '</div>'
       row$.append($('<td/>').html(cellValue));
 */
-cellValue='<button onclick="fichaTecnica('+datos+')" class="btn world-btn">Ficha Tecnica</a>'
+cellValue='<button onclick="busqueda:newLocation('+datos+')" class="btn world-btn">Ficha Tecnica</button>'+
 row$.append($('<td/>').html(cellValue));
 
 
@@ -356,7 +356,7 @@ row$.append($('<td/>').html(cellValue));
 }
 
 function fichaTecnica(datos){
-  location.assign='https://twitter.com/home';
+  window.location.href="https://twitter.com/home";
 }
 
 // Adds a header row to the table and returns the set of columns.
