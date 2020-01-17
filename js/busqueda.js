@@ -312,10 +312,9 @@ var myList = [
 function buildHtmlTable(selector) {
   var columns = addAllColumnHeaders(myList, selector);
   for (var i = 0; i < myList.length; i++) {
-    if(myList[i][columns[3]]=='Sin Comprar'){
       var row$ = $('<tr/>');
       var datos=[]
-      for (var colIndex = 0; colIndex < columns.length-2; colIndex++) {
+      for (var colIndex = 0; colIndex < columns.length; colIndex++) {
         var cellValue = myList[i][columns[colIndex]];
         if (typeof cellValue =="object" && cellValue.length != 1){
           var aux="";
@@ -332,15 +331,15 @@ function buildHtmlTable(selector) {
 
 
 
-      cellValue='<div class="load-more-btn text-center">'
+      /*cellValue='<div class="load-more-btn text-center">'
             +'<a href="https://www.todostuslibros.com/busquedas/?keyword='+
             datos[0]+' '+datos[1]
             +'" class="btn world-btn">Lugar de Venta</a>'+
         '</div>'
       row$.append($('<td/>').html(cellValue));
+*/
 
-
-
+/*
       cellValue='<div class="load-more-btn text-center">'
                   +'<a href="https://www.amazon.es/s?k='+
                 datos[0]+' '+datos[1]
@@ -350,8 +349,8 @@ function buildHtmlTable(selector) {
 
 
       $(selector).append(row$);
+*/
 
-    }
   }
 }
 
@@ -372,7 +371,7 @@ function addAllColumnHeaders(myList, selector) {
 
     }
   }
-
+/*
   key="Fisico"
   columnSet.push(key);
   headerTr$.append($('<th/>').html(key));
@@ -380,6 +379,6 @@ function addAllColumnHeaders(myList, selector) {
   columnSet.push(key);
   headerTr$.append($('<th/>').html(key));
   $(selector).append(headerTr$);
-
+*/
   return columnSet;
 }
