@@ -324,7 +324,9 @@ function buildHtmlTable(selector) {
           aux+=cellValue[cellValue.length-1]
         cellValue= aux
         }
-        datos.push(cellValue)
+
+          datos.push(cellValue)
+
         if (cellValue == null) cellValue = "";
         row$.append($('<td/>').html(cellValue));
       }
@@ -337,8 +339,8 @@ function buildHtmlTable(selector) {
         '</div>'
       row$.append($('<td/>').html(cellValue));
 */
-cellValue='<button onclick="busqueda:newLocation('+datos+')" class="btn world-btn">Ficha Tecnica</button>'+
-row$.append($('<td/>').html(cellValue));
+      cellValue='<button onclick="fichaTecnica('+datos[1]+')" class="btn world-btn">Ficha Tecnica</button>'
+      row$.append($('<td/>').html(cellValue));
 
 
       /*cellValue='<div class="load-more-btn text-center">'
@@ -355,10 +357,21 @@ row$.append($('<td/>').html(cellValue));
   }
 }
 
-function fichaTecnica(datos){
-  window.location.href="https://twitter.com/home";
+function fichaTecnica(dato1){
+  var titulo=dato1;
+  document.getElementById("contenedor").innerHTML = '<button onclick="vuelta()" class="btn world-btn">Volver</button>'+
+    '<h1>'+titulo+'</h1>'
 }
 
+
+function vuelta(){
+  document.getElementById("contenedor").innerHTML ='<div class="row justify-content-center"><div class="col-12 ">'
+        +'<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>'
+              +'<body onLoad="buildHtmlTable(\'#excelDataTable\')">'
+          +  '<table id="excelDataTable" class="tabla-mirar" border="1">'
+          +  '</table>'
+          +'</div></div>'
+}
 // Adds a header row to the table and returns the set of columns.
 // Need to do union of keys from all records as some records may not contain
 // all records.

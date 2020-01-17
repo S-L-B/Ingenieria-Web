@@ -342,9 +342,9 @@ function buildHtmlTable(selector) {
       cellValue='<div class="load-more-btn text-center">'+
                   '<a href="#" class="btn world-btn">X</a>'+
                 '</div>'
-      row$.append($('<td/>').html(cellValue));      
+      row$.append($('<td/>').html(cellValue));
       $(selector).append(row$);
-      
+
     }
   }
 }
@@ -362,7 +362,7 @@ function addAllColumnHeaders(myList, selector) {
       if(key == "titulo" ||
       key == "autor" ||
       key == "anno" ||
-      key == "estado" || 
+      key == "estado" ||
       key == "nombre_saga" ||
       key == "entrega"
       ){
@@ -375,6 +375,6 @@ function addAllColumnHeaders(myList, selector) {
   }
 
   $(selector).append(headerTr$);
-  
+
   return columnSet;
 }
