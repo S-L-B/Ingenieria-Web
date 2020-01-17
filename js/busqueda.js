@@ -330,15 +330,15 @@ function buildHtmlTable(selector) {
         row$.append($('<td/>').html(cellValue));
       }
 
-    
-      
+
+
       cellValue='<div class="load-more-btn text-center">'
             +'<a href="https://www.todostuslibros.com/busquedas/?keyword='+
             datos[0]+' '+datos[1]
             +'" class="btn world-btn">Lugar de Venta</a>'+
         '</div>'
       row$.append($('<td/>').html(cellValue));
-      
+
 
 
       cellValue='<div class="load-more-btn text-center">'
@@ -347,10 +347,10 @@ function buildHtmlTable(selector) {
                 +'" class="btn world-btn">Lugar de Venta</a>'+
                 '</div>'
       row$.append($('<td/>').html(cellValue));
-      
-      
+
+
       $(selector).append(row$);
-      
+
     }
   }
 }
@@ -365,18 +365,11 @@ function addAllColumnHeaders(myList, selector) {
   for (var i = 0; i < myList.length; i++) {
     var rowHash = myList[i];
     for (var key in rowHash) {
-      if(key == "titulo"|| 
-         key == "autor" ||
-         key == "anno" ||
-         key == "nombre_saga" ||
-         key == "entrega"||
-         key == "estado"
-        ){
         if ($.inArray(key, columnSet) == -1) {
           columnSet.push(key);
           headerTr$.append($('<th/>').html(key));
         }
-      }
+
     }
   }
 
@@ -387,6 +380,6 @@ function addAllColumnHeaders(myList, selector) {
   columnSet.push(key);
   headerTr$.append($('<th/>').html(key));
   $(selector).append(headerTr$);
-  
+
   return columnSet;
 }
