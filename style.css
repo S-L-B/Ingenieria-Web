@@ -1270,5 +1270,26 @@ textarea:focus ~ .highlight {
 td{
   width: "(100/3)%";
 }
+.inicio{
+  float:right;
+}
+
+.informacion{
+    text-align: center;
+    font-size: 20px;
+}
+
+.autor{
+ float: left;
+}
+.libros{
+
+}
+.puntuacion {
+  float:right;
+}
+.boton_resena{
+  float: left;
+}
 
 /*# sourceMappingURL=style.css.map */

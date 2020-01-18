@@ -339,7 +339,25 @@ function buildHtmlTable(selector) {
         '</div>'
       row$.append($('<td/>').html(cellValue));
 */
-      cellValue='<button onclick="fichaTecnica('+datos[1]+')" class="btn world-btn">Ficha Tecnica</button>'
+      cellValue='<button onclick="fichaTecnica(\''
+      +datos[0]+
+      '\',\''
+      +datos[1]+
+      '\',\''
+      +datos[2]+
+      '\',\''
+      +datos[3]+
+      '\',\''
+      +datos[4]+
+      '\',\''
+      +datos[5]+
+      '\',\''
+      +datos[6]+
+      '\',\''
+      +datos[7]+
+      '\',\''
+      +datos[8]+
+      '\')" class="btn world-btn">Ficha Tecnica</button>'
       row$.append($('<td/>').html(cellValue));
 
 
@@ -357,20 +375,45 @@ function buildHtmlTable(selector) {
   }
 }
 
-function fichaTecnica(dato1){
-  var titulo=dato1;
+function fichaTecnica(id, titulo,autor,anno,estado,genero,editorial,saga,entrega){
+  var nodefinido="undefined"
+  if (genero != nodefinido) {
+    var generoCadena='<strong>Genero: </strong><strong class="datosinfo">'+genero+'</strong><br>'
+  }else{var generoCadena=''}
+  if (editorial != nodefinido) {
+    var editorialCadena='<strong>Editorial: </strong><strong class="datosinfo">'+editorial+'</strong><br>'
+  }else{var editorialCadena=''}
+
+  if (saga != nodefinido) {
+    var sagaCadena='<strong>Saga: </strong><strong class="datosinfo">'+saga+'</strong><br>'
+  }else{var sagaCadena=''}
+  if (entrega != nodefinido) {
+    var entregaCadena='<strong>Entrega: </strong><strong class="datosinfo">'+entrega+'</strong><br>'
+  }else{var entregaCadena=''}
   document.getElementById("contenedor").innerHTML = '<button onclick="vuelta()" class="btn world-btn">Volver</button>'+
-    '<h1>'+titulo+'</h1>'
+    '<h5>Ficha Tecnica</h5>'+
+    '<div class="informacion">'+
+    '<strong>Número de identificación: </strong><strong class="datosinfo">'+id+'</strong><br>'+
+    '<strong>Titulo: </strong><strong class="datosinfo">'+titulo+'</strong><br>'+
+    '<strong>Estado: </strong><strong class="datosinfo">'+estado+'</strong><br>'+
+    '<strong>Año: </strong><strong class="datosinfo">'+anno+'</strong><br>'+
+    generoCadena +
+    editorialCadena +
+    sagaCadena+
+    entregaCadena+
+    '</div>'+
+    '<button onclick="modificar()" class="btn world-btn">Modificar</button>'
 }
 
+function modificar(){
+  var datos=document.getElementById("datosinfo")
+  
+}
 
 function vuelta(){
-  document.getElementById("contenedor").innerHTML ='<div class="row justify-content-center"><div class="col-12 ">'
-        +'<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>'
-              +'<body onLoad="buildHtmlTable(\'#excelDataTable\')">'
-          +  '<table id="excelDataTable" class="tabla-mirar" border="1">'
-          +  '</table>'
-          +'</div></div>'
+  window.location.replace("lookBooks.html");
+  //document.getElementById("contenedor").innerHTML ='<div class="row justify-content-center">'+
+  //'<div class="col-12 "> <body onLoad="buildHtmlTable(\'#excelDataTable\')"><table id="excelDataTable" class="tabla-mirar" border="1"></table></div></div>'
 }
 // Adds a header row to the table and returns the set of columns.
 // Need to do union of keys from all records as some records may not contain
