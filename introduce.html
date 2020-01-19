@@ -29,44 +29,34 @@
             <div class="row">
                 <div class="col-12">
                     <nav class="navbar navbar-expand-lg">
-                        <!-- Logo -->
-                        <!--<a class="navbar-brand" href="index.html"><img src="img/core-img/logo.png" alt="Logo"></a>
-                        -->
-                        <!-- Navbar Toggler -->
-                        <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#worldNav" aria-controls="worldNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                        -->
-                        <!-- Navbar -->
                         <div class="collapse navbar-collapse" id="worldNav">
                           <ul class="navbar-nav ml-auto">
-                              <li class="nav-item">
-                                  <a class="nav-link" href="index.html">Home</a>
+                              <li class="nav-item active">
+                                  <a class="nav-link" href="index.html">Home </a>
                               </li>
-                              <li class="nav-item">
+                              <li class="nav-item active">
                                   <a class="nav-link" href="lookBooks.html">Ver Libros</a>
                               </li>
                               <li class="nav-item active">
-                                  <a class="nav-link" href="introduce.html">Introducir Libros</a>
+                                  <a class="nav-link" href="resena.html">Reseñas</a>
                               </li>
-                              <li class="nav-item">
-                                  <a class="nav-link" href="mod.html">Modificar Información</a>
+                              <li class="nav-item active">
+                                  <a class="nav-link" href="eventos.html">Eventos</a>
                               </li>
-                              <li class="nav-item">
-                                  <a class="nav-link" href="delete.html">Borrar Información</a>
-                              </li>
-                              <li class="nav-item">
-                                  <a class="nav-link" href="backUp.html">Copia de seguridad</a>
+
+                              <li class="nav-item active">
+                                  <a class="nav-link" href="contacto.html">Contacto</a>
                               </li>
                           </ul>
-                            <!-- Search Form  -->
-                            <!--
-                            <div id="search-wrapper">
-                                <form action="#">
-                                    <input type="text" id="search" placeholder="Search something...">
-                                    <div id="close-icon"></div>
-                                    <input class="d-none" type="submit" value="">
-                                </form>
-                            </div>
-                          -->
+                        </div>
+                    </nav>
+                    <nav class="navbar navbar-expand-lg">
+                      <div class="collapse navbar-collapse" id="worldNav">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item active" >
+                                <a class="nav-link" href="iniciosesion.html">Iniciar Sesión </a>
+                            </li>
+                          </ul>
                         </div>
                     </nav>
                 </div>
@@ -87,89 +77,86 @@
                     <div class="contact-form">
                         <h5>Introduce la información de un nuevo libro</h5>
                         <!-- Contact Form -->
-                        <form action="#" method="post">
-                            <div class="row">
-                                <div class="col-12 col-md-6">
+                          <div class="row">
+                              <div class="col-12 col-md-6">
+                                <div class="group">
+                                    <input type="text" name="titulo" id="titulo" required>
+                                    <span class="highlight"></span>
+                                    <span class="bar"></span>
+                                    <label>Titulo</label>
+                                </div>
+                              </div>
+                              <div class="col-12 col-md-6">
                                   <div class="group">
-                                      <input type="text" name="titulo" id="titulo" required>
+                                      <input type="text" name="autor" id="autor" required>
                                       <span class="highlight"></span>
                                       <span class="bar"></span>
-                                      <label>Titulo</label>
+                                      <label>Autor</label>
+                                  </div>
+                              </div>
+                              <div class="col-12 col-md-6">
+                                  <div class="group">
+                                      <input type="number" name="anno" id="anno" required>
+                                      <span class="highlight"></span>
+                                      <span class="bar"></span>
+                                      <label>Año de publicación</label>
+                                  </div>
+                              </div>
+                              <div class="col-12 col-md-6">
+                                  <div class="group">
+                                    <select name="estado" required>
+                                        <option value="Sin Comprar">Sin Comprar</option>
+                                        <option value="Comprado">Comprado</option>
+                                        <option value="Leido">Leido</option>
+                                    </select>
+                                      <span class="highlight"></span>
+                                      <span class="bar"></span>
+                                      <label>Estado</label>
                                   </div>
                                 </div>
                                 <div class="col-12 col-md-6">
-                                    <div class="group">
-                                        <input type="text" name="autor" id="autor" required>
-                                        <span class="highlight"></span>
-                                        <span class="bar"></span>
-                                        <label>Autor</label>
-                                    </div>
+                                  <div class="group">
+                                      <input type="text" name="saga" id="saga" >
+                                      <span class="highlight"></span>
+                                      <span class="bar"></span>
+                                      <label>Saga</label>
+                                  </div>
                                 </div>
                                 <div class="col-12 col-md-6">
-                                    <div class="group">
-                                        <input type="number" name="anno" id="anno" required>
-                                        <span class="highlight"></span>
-                                        <span class="bar"></span>
-                                        <label>Año de publicación</label>
-                                    </div>
+
+                                  <div class="group">
+                                      <input type="number" name="entrega" id="entrega" >
+                                      <span class="highlight"></span>
+                                      <span class="bar"></span>
+                                      <label>Entrega</label>
+                                  </div>
                                 </div>
                                 <div class="col-12 col-md-6">
-                                    <div class="group">
-                                      <select name="estado" required>
-                                          <option value="Sin Comprar">Sin Comprar</option>
-                                          <option value="Comprado">Comprado</option>
-                                          <option value="Leido">Leido</option>
-                                      </select>
-                                        <span class="highlight"></span>
-                                        <span class="bar"></span>
-                                        <label>Estado</label>
-                                    </div>
-                                  </div>
-                                  <div class="col-12 col-md-6">
-                                    <div class="group">
-                                        <input type="text" name="saga" id="saga" >
-                                        <span class="highlight"></span>
-                                        <span class="bar"></span>
-                                        <label>Saga</label>
-                                    </div>
-                                  </div>
-                                  <div class="col-12 col-md-6">
 
-                                    <div class="group">
-                                        <input type="number" name="entrega" id="entrega" >
-                                        <span class="highlight"></span>
-                                        <span class="bar"></span>
-                                        <label>Entrega</label>
-                                    </div>
-                                  </div>
-                                  <div class="col-12 col-md-6">
-
-                                    <div class="group">
-                                        <input type="text" name="genero" id="genero" >
-                                        <span class="highlight"></span>
-                                        <span class="bar"></span>
-                                        <label>Genero</label>
-                                    </div>
-                                  </div>
-                                  <div class="col-12 col-md-6">
-
-                                    <div class="group">
-                                        <input type="text" name="editorial" id="editorial" >
-                                        <span class="highlight"></span>
-                                        <span class="bar"></span>
-                                        <label>Editorial</label>
-                                    </div>
+                                  <div class="group">
+                                      <input type="text" name="genero" id="genero" >
+                                      <span class="highlight"></span>
+                                      <span class="bar"></span>
+                                      <label>Genero</label>
                                   </div>
                                 </div>
-                                <div class="col-12">
-                                    <button type="submit" class="btn world-btn">Introducir Libro</button>
+                                <div class="col-12 col-md-6">
+
+                                  <div class="group">
+                                      <input type="text" name="editorial" id="editorial" >
+                                      <span class="highlight"></span>
+                                      <span class="bar"></span>
+                                      <label>Editorial</label>
+                                  </div>
                                 </div>
-                            </div>
-                        </form>
+                              </div>
+                              <div class="col-12">
+                                  <button onclick="vuelta()" class="btn world-btn">Volver</button>
+                              </div>
+                          </div>
                     </div>
                 </div>
             </div>
-        </div>
     </section>
 
     <!-- Google Maps: If you want to google map, just uncomment below codes -->
@@ -180,6 +167,7 @@
     -->
 
     <!-- ***** Footer Area Start ***** -->
+    <!-- ***** Footer Area Start ***** -->
     <footer class="footer-area">
         <div class="container">
             <div class="row">
@@ -189,8 +177,8 @@
                         -->
                         <div class="copywrite-text mt-30">
                             <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
- This web page is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://twitter.com/SergioLBenitez" target="_blank">SergioLBenitez</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+  This web page is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://twitter.com/SergioLBenitez" target="_blank">SergioLBenitez</a>
+  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
                         </div>
                     </div>
                 </div>
@@ -199,10 +187,9 @@
                         <ul class="footer-menu d-flex justify-content-between">
                             <li><a href="index.html">Home</a></li>
                             <li><a href="lookBooks.html">Ver Libros</a></li>
-                            <li><a href="introduce.html">Introducir Libros</a></li>
-                            <li><a href="mod.html">Modificar Información</a></li>
-                            <li><a href="delete.html">Borrar Información</a></li>
-                            <li><a href="backUp.html">Copia de seguridad</a></li>
+                            <li><a href="resena.html">Reseñas</a></li>
+                            <li><a href="eventos.html">Eventos</a></li>
+                            <li><a href="contacto.html">Contacto</a></li>
                         </ul>
                     </div>
                 </div>
@@ -221,6 +208,8 @@
     <script src="js/plugins.js"></script>
     <!-- Active js -->
     <script src="js/active.js"></script>
+    <script src="js/busqueda.js"></script>
+
     <!-- Google Maps: If you want to google map, just uncomment below codes -->
     <!--
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAwuyLRa1uKNtbgx6xAJVmWy-zADgegA2s"></script>

@@ -1270,9 +1270,7 @@ textarea:focus ~ .highlight {
 td{
   width: "(100/3)%";
 }
-.inicio{
-  float:right;
-}
+
 
 .informacion{
     text-align: center;
@@ -1292,4 +1290,35 @@ td{
   float: left;
 }
 
+
+
+#resena_individual div {
+  display: inline-block;
+  height: auto;
+}
+#resena_individual{
+  padding-top: 5px;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  margin-bottom: 5px;
+  margin-top: 1px;
+
+}
+#libro #puntuacion{
+}
+.boton_resena{
+
+}
+.extra_resena{
+  margin: 10px;
+  display: inline-block;
+  height: 50px; /*sets height of element*/
+  transition: all 0.6s; /*sets a transition (for hover effect)*/
+  padding-left: 20px; /*sets 'padding'*/
+  padding-right: 20px; /*sets 'padding'*/
+  line-height: 50px; /*for this, it sets vertical alignment*/
+}
+#boton_nuevo{
+  margin-bottom: 20px;
+}
 /*# sourceMappingURL=style.css.map */

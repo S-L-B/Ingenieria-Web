@@ -378,36 +378,66 @@ function buildHtmlTable(selector) {
 function fichaTecnica(id, titulo,autor,anno,estado,genero,editorial,saga,entrega){
   var nodefinido="undefined"
   if (genero != nodefinido) {
-    var generoCadena='<strong>Genero: </strong><strong class="datosinfo">'+genero+'</strong><br>'
+    var generoCadena='<strong>Genero: </strong><strong id="generoinfo">'+genero+'</strong><br>'
   }else{var generoCadena=''}
   if (editorial != nodefinido) {
-    var editorialCadena='<strong>Editorial: </strong><strong class="datosinfo">'+editorial+'</strong><br>'
+    var editorialCadena='<strong>Editorial: </strong><strong id="editorialinfo">'+editorial+'</strong><br>'
   }else{var editorialCadena=''}
 
   if (saga != nodefinido) {
-    var sagaCadena='<strong>Saga: </strong><strong class="datosinfo">'+saga+'</strong><br>'
+    var sagaCadena='<strong>Saga: </strong><strong id="sagainfo">'+saga+'</strong><br>'
   }else{var sagaCadena=''}
   if (entrega != nodefinido) {
-    var entregaCadena='<strong>Entrega: </strong><strong class="datosinfo">'+entrega+'</strong><br>'
+    var entregaCadena='<strong>Entrega: </strong><strong id="entregainfo">'+entrega+'</strong><br>'
   }else{var entregaCadena=''}
   document.getElementById("contenedor").innerHTML = '<button onclick="vuelta()" class="btn world-btn">Volver</button>'+
     '<h5>Ficha Tecnica</h5>'+
     '<div class="informacion">'+
-    '<strong>Número de identificación: </strong><strong class="datosinfo">'+id+'</strong><br>'+
-    '<strong>Titulo: </strong><strong class="datosinfo">'+titulo+'</strong><br>'+
-    '<strong>Estado: </strong><strong class="datosinfo">'+estado+'</strong><br>'+
-    '<strong>Año: </strong><strong class="datosinfo">'+anno+'</strong><br>'+
+    '<strong>Número de identificación: </strong><strong id="idinfo">'+id+'</strong><br>'+
+    '<strong>Titulo: </strong><strong id="tituloinfo">'+titulo+'</strong><br>'+
+    '<strong>Estado: </strong><strong id="estadoinfo">'+estado+'</strong><br>'+
+    '<strong>Año: </strong><strong id="annoinfo">'+anno+'</strong><br>'+
     generoCadena +
     editorialCadena +
     sagaCadena+
     entregaCadena+
+    '<div id="boton_mod">'+
+    '<button onclick="modificar()" class="btn world-btn">Modificar</button>'+
     '</div>'+
-    '<button onclick="modificar()" class="btn world-btn">Modificar</button>'
+    '</div>'
 }
 
 function modificar(){
-  var datos=document.getElementById("datosinfo")
-  
+  document.getElementById("tituloinfo").innerHTML='<input type="text" class="group" name="autor" id="autor" required>'
+  document.getElementById("estadoinfo").innerHTML='<input type="text" class="group" name="autor" id="autor" required>'
+  document.getElementById("annoinfo").innerHTML='<input type="text" class="group" name="autor" id="autor" required>'
+  document.getElementById("boton_mod").innerHTML='<button onclick="guardar()" id="boton_mod" class="btn world-btn">Guardar</button>'
+
+  var element = document.getElementById("entregainfo");
+     //If it isn't "undefined" and it isn't "null", then it exists.
+  if(typeof(element) != 'undefined' && element != null){
+    document.getElementById("entregainfo").innerHTML='<input type="text" class="group" name="autor" id="autor" required>'
+  }
+  var element2 = document.getElementById("sagainfo");
+     //If it isn't "undefined" and it isn't "null", then it exists.
+  if(typeof(element2) != 'undefined' && element2 != null){
+    document.getElementById("sagainfo").innerHTML='<input type="text" class="group" name="autor" id="autor" required>'
+  }
+  var element3 = document.getElementById("editorialinfo");
+     //If it isn't "undefined" and it isn't "null", then it exists.
+  if(typeof(element3) != 'undefined' && element3 != null){
+    document.getElementById("editorialinfo").innerHTML='<input type="text" class="group" name="autor" id="autor" required>'
+  }
+  var element4 = document.getElementById("generoinfo");
+     //If it isn't "undefined" and it isn't "null", then it exists.
+  if(typeof(element4) != 'undefined' && element4 != null){
+    document.getElementById("generoinfo").innerHTML='<input type="text" class="group" name="autor" id="autor" required>'
+  }
+
+}
+function boton(identi,valor){
+  document.getElementById(valor).innerHTML='<input type="text" class="group"'+
+  ' name="autor" id="autor" value="'+identi+'">'
 }
 
 function vuelta(){
@@ -438,4 +468,10 @@ function addAllColumnHeaders(myList, selector) {
   $(selector).append(headerTr$);
 
   return columnSet;
+}
+
+
+function nuevo(){
+  window.location.replace("introduce.html");
+
 }
