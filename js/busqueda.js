@@ -393,10 +393,10 @@ function fichaTecnica(id, titulo,autor,anno,estado,genero,editorial,saga,entrega
   document.getElementById("contenedor").innerHTML = '<button onclick="vuelta()" class="btn world-btn">Volver</button>'+
     '<h5>Ficha Tecnica</h5>'+
     '<div class="informacion">'+
-    '<label>Número de identificación: </label><label id="idinfo">'+id+'</label><br>'+
-    '<label>Titulo: </label><label id="tituloinfo">'+titulo+'</label><br>'+
-    '<label>Estado: </label><label id="estadoinfo">'+estado+'</label><br>'+
-    '<label>Año: </label><label id="annoinfo">'+anno+'</label><br>'+
+    'Número de identificación: <label id="idinfo">'+id+'</label><br>'+
+    'Titulo: <label id="tituloinfo">'+titulo+'</label><br>'+
+    'Estado: <label id="estadoinfo">'+estado+'</label><br>'+
+    'Año: <label id="annoinfo">'+anno+'</label><br>'+
     generoCadena +
     editorialCadena +
     sagaCadena+
@@ -410,34 +410,43 @@ function fichaTecnica(id, titulo,autor,anno,estado,genero,editorial,saga,entrega
 
 function guardar(){
   window.location.replace("lookBooks.html");
-
 }
 
 function modificar(){
-  document.getElementById("tituloinfo").innerHTML='<input type="text" class="group" name="autor" id="autor" required>'
-  document.getElementById("estadoinfo").innerHTML='<input type="text" class="group" name="autor" id="autor" required>'
-  document.getElementById("annoinfo").innerHTML='<input type="text" class="group" name="autor" id="autor" required>'
+  var titulo = document.getElementById("tituloinfo").textContent
+  var estado = document.getElementById("estadoinfo").textContent
+  var anno = document.getElementById("annoinfo").textContent
+
+  //var estado = document.getElementById("estadoinfo")
+  document.getElementById("tituloinfo").innerHTML='<input type="text" value="'+titulo+'" id="autor" required>'
+  document.getElementById("estadoinfo").innerHTML='<input type="text" value="'+estado+'" id="autor" required>'
+  document.getElementById("annoinfo").innerHTML='<input type="text" value="'+anno+'" id="autor" required>'
   document.getElementById("boton_mod").innerHTML='<button onclick="guardar()" id="boton_mod" class="btn world-btn">Guardar</button>'
 
   var element = document.getElementById("entregainfo");
      //If it isn't "undefined" and it isn't "null", then it exists.
   if(typeof(element) != 'undefined' && element != null){
-    document.getElementById("entregainfo").innerHTML='<input type="text" class="group" name="autor" id="autor" required>'
+    var entrega = document.getElementById("entregainfo").textContent
+    document.getElementById("entregainfo").innerHTML='<input type="text" value="'+entrega+'" id="autor" required>'
   }
   var element2 = document.getElementById("sagainfo");
      //If it isn't "undefined" and it isn't "null", then it exists.
   if(typeof(element2) != 'undefined' && element2 != null){
-    document.getElementById("sagainfo").innerHTML='<input type="text" class="group" name="autor" id="autor" required>'
+    var saga = document.getElementById("sagainfo").textContent
+    document.getElementById("sagainfo").innerHTML='<input type="text" value="'+saga+'" id="autor" required>'
   }
   var element3 = document.getElementById("editorialinfo");
      //If it isn't "undefined" and it isn't "null", then it exists.
   if(typeof(element3) != 'undefined' && element3 != null){
-    document.getElementById("editorialinfo").innerHTML='<input type="text" class="group" name="autor" id="autor" required>'
+    var editorial = document.getElementById("editorialinfo").textContent
+
+    document.getElementById("editorialinfo").innerHTML='<input type="text" value="'+editorial+'" id="autor" required>'
   }
   var element4 = document.getElementById("generoinfo");
      //If it isn't "undefined" and it isn't "null", then it exists.
   if(typeof(element4) != 'undefined' && element4 != null){
-    document.getElementById("generoinfo").innerHTML='<input type="text" class="group" name="autor" id="autor" required>'
+    var genero = document.getElementById("generoinfo").textContent
+    document.getElementById("generoinfo").innerHTML='<input type="text" value="'+genero+'" id="autor" required>'
   }
 
 }

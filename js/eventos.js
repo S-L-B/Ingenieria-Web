@@ -1,11 +1,12 @@
 
-var autor=["Arturo","Miguel","Juan","Mario"]
-var fecha=["mañana","hoy","sfds","dadfs"]
-var ciudad=["Teruel","Zaragoza","Cuenca","Teruel"]
-var lugar=["Universidad","Plaza","ss"]
+var autor=["Anonimo","Miguel","Manuel Gonzalez","Mario"]
+var fecha=["22/01/2020-9:00","23/03/2020-9:00","04/03/2020","22/05/2020-9:00"]
+var ciudad=["Cuenca","Zaragoza","Toda España","Teruel"]
+var lugar=["Por determinar","Plaza España","","Plaza el Torico"]
 var descri=[
   "gdasfdasfdasfdsaadddddddsfdsfdasfasdfdsfdddsssssddssssssddasfdsfdsfnadojsfbndjasbnfsssssssssssaffffdsffffffffffffffffffffffffffffffffffffffffffffffffffssssssssssssdsfadasf"
-,"ssd","gdasdsfdsnkgdas","dfsfa"]
+,"Tendrá lugar el encuentro de la firma de libros donde en autor blablabla de su último libro blablabla"
+,"Manuel Gonzalez saca a la venta su primer libro Búnker","Proyección de la pelicula 'Blade Runner' inspirada en el libro '¿Sueñan los androides con ovejas eléctricas?' de Philip K.Dick "]
 function eventos_individual(i){
   return'<div class="col-12" id=evento_individual>'+
     '<div class="col-12 evento_info">'+

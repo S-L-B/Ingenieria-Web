@@ -2,17 +2,17 @@ var total=0;
 var usuario=["Paco","Antonio","Eva","María","Ana"];
 var libro=["4321","Esta niebla insensata","Divina Comedia","4321","Hombres Buenos"];
 var autor=["Paul Auster","Enrique Vila-Matas","Dante","Paul Auster","Arturo Perez-Reverte"]
-var puntuacion=["4","5","2","3","1"];
+var puntuacion=["4","5","5","3","1"];
 var description=["Me ha encantado mucho, es muy algo diferentes a lo que he leido anteriormente.",
 "Simplemente brillante","Un clásico que todo el mundo debe leer.",
-"Prueba salto de lineaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+"Prueba salto de lineaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa lineaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaalineaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaalineaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaalineaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa lineaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa lineaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa prueba prueba prueba prueba aaaaaaaaaaaaaaaa aaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
 "Este autor siempre hace el mismo tipo de libros"];
 var clic = [];
 
 function resena_individual(i) {
    return '<div class="col-12" id="resena_individual" >'+
-    '<div class="col-2" id="usuario">'+usuario[i]+'</div>'+
-    '<div class="col-2" id="autor">'+autor[i]+'</div>'+
+    '<div class="col-3" id="usuario">'+usuario[i]+'</div>'+
+    '<div class="col-3" id="autor">'+autor[i]+'</div>'+
     '<div class="col-2" id="libro">'+libro[i]+'</div>'+
     '<div class="col-2" id="puntuacion">'+puntuacion[i]+'/5</div>'+
     '<div class="col-2">'+
@@ -38,11 +38,11 @@ function nuevo(){
     document.getElementById("resena").innerHTML='<button onclick="vuelta()" class="btn world-btn">Volver</button>'+
       '<h5>Nueva Reseña</h5>'+
       '<div class="informacion">'+
-      '<label>Usuario:</label><label>Manuel</label><br>'+
-      '<label>Titulo:</label><input type="text" class="group" name="titulo" id="titulo" ><br>'+
-      '<label>Autor:</label><input type="text" class="group" name="autor" id="autor" ><br>'+
-      '<label>Puntuación: </label><input type="text" class="group" name="puntuacion" id="puntuacion" ><br>'+
-      '<label>Descripción: </label><input type="text" class="group" name="descrip" id="descrip"><br>'+
+      'Usuario: <label>Manuel</label><br>'+
+      'Titulo: <input type="text" id="titulo"><br>'+
+      'Autor: <input type="text"  id="autor" ><br>'+
+      'Puntuación: <input type="text"  id="puntuacion"><br>'+
+      'Descripción: <input type="text" id="descrip" ><br>'+
         '<div id="boton_mod">'+
         '<button onclick="guardar()" class="btn world-btn">Guardar</button>'+
         '</div>'+
@@ -50,12 +50,12 @@ function nuevo(){
 }
 
 function guardar(){
-  auto="Manuel"
-  libro.push(document.getElementById("titulo"));
-  autor.push(document.getElementById("autor"));
-  puntuacion.push(document.getElementById("puntuacion"));
-  description.push(document.getElementById("descrip"));
-  window.location.replace("resena.html");
+  usuario.push("Manuel");
+  libro.push(document.getElementById("titulo").value);
+  autor.push(document.getElementById("autor").value);
+  puntuacion.push(document.getElementById("puntuacion").value);
+  description.push(document.getElementById("descrip").value);
+  resena();
 }
 
 function vuelta() {
@@ -83,7 +83,7 @@ function cadenaAdapt(i){
   var lon=i.length
   var newCadena="";
   var index=0;
-  var fila=135;
+  var fila=140;
   if (lon > fila) {
     while (lon > fila) {
       newCadena+=i.substr(index,fila)+"<br>";
