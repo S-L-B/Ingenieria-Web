@@ -69,27 +69,26 @@
     <!-- ********** Hero Area Start ********** -->
     <div class="hero-area height-400 bg-img background-overlay" style="background-image: url(img/blog-img/bg4.jpg);"></div>
     <!-- ********** Hero Area End ********** -->
-    <div class="main-content-wrapper section-padding-100">
-        <div class="container">
+    <section class="contact-area section-padding-100">
             <div class="row justify-content-center">
-              <!-- ============= Post Content Area Start ============= -->
-              <div class="col-10 ">
-                <div id="search-wrapper">
-                    <form action="#">
-                        <input type="text" id="search" placeholder="¿Qué libro o autor te gustaria buscar?">
-                        <div id="close-icon"></div>
-                        <input class="d-none" type="submit" value="">
-                    </form>
+                <!-- Contact Form Area -->
+                <div class="col-12 col-md-10 col-lg-8  busqueda">
+                    <div class="group">
+                        <input type="text" name="Buscar" id="buscar" >
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>Ciudad</label>
+                    </div>
+                <div>
+                  <button onclick="buscar()" class="btn world-btn">Buscar</button>
                 </div>
-                <body onLoad="buildHtmlTable('#excelDataTable')">
-                    <table id="excelDataTable" class="tabla-mirar" border="1">
-                    </table>
-
                 </div>
-              </div>
-          </div>
-      </div>
-    </div>
+                <div class="col-12 col-md-10 col-lg-8" id="eventos">
+                  <body onLoad='eventos()'>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- ***** Footer Area Start ***** -->
     <footer class="footer-area">
         <div class="container">
@@ -132,6 +131,7 @@
     <!-- Active js -->
     <script src="js/active.js"></script>
     <script src="js/modificar.js"></script>
+    <script src="js/eventos.js"></script>
 
 </body>
 

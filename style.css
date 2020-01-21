@@ -1302,10 +1302,9 @@ td{
   border-bottom: 1px solid black;
   margin-bottom: 5px;
   margin-top: 1px;
+}
 
-}
-#libro #puntuacion{
-}
+
 .boton_resena{
 
 }
@@ -1320,5 +1319,34 @@ td{
 }
 #boton_nuevo{
   margin-bottom: 20px;
+}
+
+
+.busqueda div {
+  display: inline-block;
+  height: auto;
+}
+#evento_individual{
+  padding-top: 5px;
+  border-top: 1px solid black;
+  margin-bottom: 5px;
+  margin-top: 1px;
+}
+
+.evento_info div {
+  margin: 10px;
+  display: inline-block;
+  height: 50px; /*sets height of element*/
+  transition: all 0.6s; /*sets a transition (for hover effect)*/
+  padding-left: 20px; /*sets 'padding'*/
+  padding-right: 20px; /*sets 'padding'*/
+  line-height: 50px; /*for this, it sets vertical alignment*/
+}
+.evento_info{
+}
+.extra_evento{
+  border:1px solid black;
+  margin-bottom: 5px;
+
 }
 /*# sourceMappingURL=style.css.map */

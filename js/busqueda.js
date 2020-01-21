@@ -378,25 +378,25 @@ function buildHtmlTable(selector) {
 function fichaTecnica(id, titulo,autor,anno,estado,genero,editorial,saga,entrega){
   var nodefinido="undefined"
   if (genero != nodefinido) {
-    var generoCadena='<strong>Genero: </strong><strong id="generoinfo">'+genero+'</strong><br>'
+    var generoCadena='<label>Genero: </label><label id="generoinfo">'+genero+'</label><br>'
   }else{var generoCadena=''}
   if (editorial != nodefinido) {
-    var editorialCadena='<strong>Editorial: </strong><strong id="editorialinfo">'+editorial+'</strong><br>'
+    var editorialCadena='<label>Editorial: </label><label id="editorialinfo">'+editorial+'</label><br>'
   }else{var editorialCadena=''}
 
   if (saga != nodefinido) {
-    var sagaCadena='<strong>Saga: </strong><strong id="sagainfo">'+saga+'</strong><br>'
+    var sagaCadena='<label>Saga: </label><label id="sagainfo">'+saga+'</label><br>'
   }else{var sagaCadena=''}
   if (entrega != nodefinido) {
-    var entregaCadena='<strong>Entrega: </strong><strong id="entregainfo">'+entrega+'</strong><br>'
+    var entregaCadena='<label>Entrega: </label><label id="entregainfo">'+entrega+'</label><br>'
   }else{var entregaCadena=''}
   document.getElementById("contenedor").innerHTML = '<button onclick="vuelta()" class="btn world-btn">Volver</button>'+
     '<h5>Ficha Tecnica</h5>'+
     '<div class="informacion">'+
-    '<strong>Número de identificación: </strong><strong id="idinfo">'+id+'</strong><br>'+
-    '<strong>Titulo: </strong><strong id="tituloinfo">'+titulo+'</strong><br>'+
-    '<strong>Estado: </strong><strong id="estadoinfo">'+estado+'</strong><br>'+
-    '<strong>Año: </strong><strong id="annoinfo">'+anno+'</strong><br>'+
+    '<label>Número de identificación: </label><label id="idinfo">'+id+'</label><br>'+
+    '<label>Titulo: </label><label id="tituloinfo">'+titulo+'</label><br>'+
+    '<label>Estado: </label><label id="estadoinfo">'+estado+'</label><br>'+
+    '<label>Año: </label><label id="annoinfo">'+anno+'</label><br>'+
     generoCadena +
     editorialCadena +
     sagaCadena+
@@ -405,6 +405,12 @@ function fichaTecnica(id, titulo,autor,anno,estado,genero,editorial,saga,entrega
     '<button onclick="modificar()" class="btn world-btn">Modificar</button>'+
     '</div>'+
     '</div>'
+}
+
+
+function guardar(){
+  window.location.replace("lookBooks.html");
+
 }
 
 function modificar(){
