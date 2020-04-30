@@ -964,6 +964,7 @@ img {
       margin-bottom: 0px; }
 /* Form Active State */
 input:focus ~ label,
+/*input:valid ~ label,*/
 textarea:focus ~ label{
   top: -15px;
   font-size: 12px;
@@ -972,12 +973,15 @@ textarea:focus ~ label{
 input:focus ~ .bar:before,
 textarea:focus ~ .bar:before,
 input:focus ~ .bar:after,
+/*input:valid ~ .bar:after,
+input:valid ~ .bar:before,*/
 select:active,
 textarea:focus ~ .bar:after {
   width: 50%; }
 
 
 input:focus ~ .highlight,
+/*:valid ~ .highlight,*/
 textarea:focus ~ .highlight {
   -webkit-animation: inputHighlighter 0.3s ease;
   animation: inputHighlighter 0.3s ease;

@@ -378,33 +378,128 @@ function buildHtmlTable(selector) {
 function fichaTecnica(id, titulo,autor,anno,estado,genero,editorial,saga,entrega){
   var nodefinido="undefined"
   if (genero != nodefinido) {
-    var generoCadena='<label>Genero: </label><label id="generoinfo">'+genero+'</label><br>'
+    var generoCadena=
+    '<div class="col-12 ">'+
+      '<div class="group">'+
+
+      '<div id="generoid">'+
+        'Genero: <p  id="generoinfo">'+genero+'</p>'+
+      '</div>'+
+
+      '</div>'+
+    '</div>'
   }else{var generoCadena=''}
   if (editorial != nodefinido) {
-    var editorialCadena='<label>Editorial: </label><label id="editorialinfo">'+editorial+'</label><br>'
+    var editorialCadena=
+    '<div class="col-12 ">'+
+      '<div class="group">'+
+
+
+      '<div id="editorialid">'+
+        'Editorial: <p  id="editorialinfo">'+editorial+'</p>'+
+      '</div>'+
+
+      '</div>'+
+    '</div>'
   }else{var editorialCadena=''}
 
   if (saga != nodefinido) {
-    var sagaCadena='<label>Saga: </label><label id="sagainfo">'+saga+'</label><br>'
+    var sagaCadena=
+    '<div class="col-12 ">'+
+      '<div class="group">'+
+
+      '<div id="sagaid">'+
+        'Saga: <p  id="sagainfo">'+saga+'</p>'+
+      '</div>'+
+
+      '</div>'+
+    '</div>'
   }else{var sagaCadena=''}
   if (entrega != nodefinido) {
-    var entregaCadena='<label>Entrega: </label><label id="entregainfo">'+entrega+'</label><br>'
+    var entregaCadena=
+    '<div class="col-12 ">'+
+      '<div class="group">'+
+
+      '<div id="entregaid">'+
+        'Entrega: <p  id="entregainfo">'+entrega+'</p>'+
+      '</div>'+
+
+      '</div>'+
+    '</div>'
   }else{var entregaCadena=''}
   document.getElementById("contenedor").innerHTML = '<button onclick="vuelta()" class="btn world-btn">Volver</button>'+
-    '<h5>Ficha Tecnica</h5>'+
-    '<div class="informacion">'+
-    'Número de identificación: <label id="idinfo">'+id+'</label><br>'+
-    'Titulo: <label id="tituloinfo">'+titulo+'</label><br>'+
-    'Estado: <label id="estadoinfo">'+estado+'</label><br>'+
-    'Año: <label id="annoinfo">'+anno+'</label><br>'+
-    generoCadena +
-    editorialCadena +
-    sagaCadena+
-    entregaCadena+
-    '<div id="boton_mod">'+
-    '<button onclick="modificar()" class="btn world-btn">Modificar</button>'+
-    '</div>'+
-    '</div>'
+  '<section class="contact-area section-padding-100">'+
+      '<div class="container">'+
+          '<div class="row justify-content-center">'+
+            '<div class="col-12 col-md-10 col-lg-8">'+
+              '<div class="contact-form">'+
+              '<h5>Ficha Tecnica</h5>'+
+                  '<div class="row">'+
+
+                  '<div class="col-12 ">'+
+                    '<div class="group">'+
+
+                    'Número de identificación: '+id+
+
+                    '</div>'+
+                  '</div>'+
+                  '<div class="col-12">'+
+                    '<div class="group">'+
+                    '<div id="tituloid">'+
+                      'Titulo: <p  id="tituloinfo">'+titulo + '</p>'+
+                    '</div>'+
+
+                    '</div>'+
+                  '</div>'+
+                  '<div class="col-12">'+
+                    '<div class="group">'+
+                    '<div id="autorid">'+
+                      'Titulo: <p  id="autorinfo">'+autor + '</p>'+
+                    '</div>'+
+
+                    '</div>'+
+                  '</div>'+
+
+                  '<div class="col-12">'+
+                    '<div class="group">'+
+
+                    '<div id="estadoid">'+
+                      'Estado: <p  id="estadoinfo">'+estado+'</p>'+
+                    '</div>'+
+
+                    '</div>'+
+                  '</div>'+
+                  '<div class="col-12 ">'+
+                    '<div class="group">'+
+
+                    '<div id="annoid">'+
+                      'Año: <p  id="annoinfo">'+anno+'</p>'+
+                    '</div>'+
+
+                    '</div>'+
+                  '</div>'+
+
+                  generoCadena +
+                  editorialCadena +
+                  sagaCadena+
+                  entregaCadena+
+
+                  '<div id="boton_mod">'+
+                    '<button onclick="modificar()" class="btn world-btn">Modificar</button>'+
+                  '</div>'+
+
+                  '</div>'+
+            '</div>'+
+          '</div>'+
+        '</div>'+
+      '</div>'+
+    '</section>'
+
+
+
+
+
+
 }
 
 
@@ -414,39 +509,102 @@ function guardar(){
 
 function modificar(){
   var titulo = document.getElementById("tituloinfo").textContent
+  var autor = document.getElementById("autorinfo").textContent
+
   var estado = document.getElementById("estadoinfo").textContent
   var anno = document.getElementById("annoinfo").textContent
 
   //var estado = document.getElementById("estadoinfo")
-  document.getElementById("tituloinfo").innerHTML='<input type="text" value="'+titulo+'" id="autor" required>'
-  document.getElementById("estadoinfo").innerHTML='<input type="text" value="'+estado+'" id="autor" required>'
-  document.getElementById("annoinfo").innerHTML='<input type="text" value="'+anno+'" id="autor" required>'
+  document.getElementById("tituloid").innerHTML=
+  '<input type="text" name="titulo"  value="'+titulo+'" id="titulo"  required>'+
+  '<span class="highlight"></span>'+
+  '<span class="bar"></span>'+
+  '<label>Titulo</label>'
+  document.getElementById("autorid").innerHTML=
+  '<input type="text" name="autor"  value="'+autor+'" id="autor" autofocus required>'+
+  '<span class="highlight"></span>'+
+  '<span class="bar"></span>'+
+  '<label>Autor</label>'
+
+
+
+
+
+  if(estado=="Sin Comprar"){
+    document.getElementById("estadoid").innerHTML=
+      '<div class="groupmod group">'+
+        '<select name="estado" required>'+
+          '<option value="Sin Comprar" selected>Sin Comprar</option>'+
+          '<option value="Comprado">Comprado</option>'+
+          '<option value="Leido">Leido</option>'+
+        '</select>'+
+          '<span class="highlight"></span>'+
+          '<span class="bar"></span>'+
+          '<label>Estado</label>'+
+      '</div>'
+  }
+  if(estado=="Comprado"){
+    document.getElementById("estadoid").innerHTML=
+      '<div class="groupmod group">'+
+        '<select name="estado" required>'+
+          '<option value="Sin Comprar">Sin Comprar</option>'+
+          '<option value="Comprado" selected>Comprado</option>'+
+          '<option value="Leido">Leido</option>'+
+        '</select>'+
+          '<span class="highlight"></span>'+
+          '<span class="bar"></span>'+
+          '<label>Estado</label>'+
+
+      '</div>'
+  }
+  if(estado=="Leido"){
+    document.getElementById("estadoid").innerHTML=
+      '<div class="groupmod group">'+
+          '<select name="estado" required>'+
+            '<option value="Sin Comprar">Sin Comprar</option>'+
+            '<option value="Comprado">Comprado</option>'+
+            '<option value="Leido" selected>Leido</option>'+
+          '</select>'+
+            '<span class="highlight"></span>'+
+            '<span class="bar"></span>'+
+            '<label>Estado</label>'+
+
+        '</div>'
+  }
+
+
+
+  document.getElementById("annoid").innerHTML=
+  '<input type="number" name="anno"  value="'+anno+'" id="anno" required>'+
+  '<span class="highlight"></span>'+
+  '<span class="bar"></span>'+
+  '<label>Año</label>'
   document.getElementById("boton_mod").innerHTML='<button onclick="guardar()" id="boton_mod" class="btn world-btn">Guardar</button>'
 
   var element = document.getElementById("entregainfo");
      //If it isn't "undefined" and it isn't "null", then it exists.
   if(typeof(element) != 'undefined' && element != null){
     var entrega = document.getElementById("entregainfo").textContent
-    document.getElementById("entregainfo").innerHTML='<input type="text" value="'+entrega+'" id="autor" required>'
+    document.getElementById("entregaid").innerHTML='<input type="text" value="'+entrega+'" id="autor" required>'
   }
   var element2 = document.getElementById("sagainfo");
      //If it isn't "undefined" and it isn't "null", then it exists.
   if(typeof(element2) != 'undefined' && element2 != null){
     var saga = document.getElementById("sagainfo").textContent
-    document.getElementById("sagainfo").innerHTML='<input type="text" value="'+saga+'" id="autor" required>'
+    document.getElementById("sagaid").innerHTML='<input type="text" value="'+saga+'" id="autor" required>'
   }
   var element3 = document.getElementById("editorialinfo");
      //If it isn't "undefined" and it isn't "null", then it exists.
   if(typeof(element3) != 'undefined' && element3 != null){
     var editorial = document.getElementById("editorialinfo").textContent
 
-    document.getElementById("editorialinfo").innerHTML='<input type="text" value="'+editorial+'" id="autor" required>'
+    document.getElementById("editorialid").innerHTML='<input type="text" value="'+editorial+'" id="autor" required>'
   }
   var element4 = document.getElementById("generoinfo");
      //If it isn't "undefined" and it isn't "null", then it exists.
   if(typeof(element4) != 'undefined' && element4 != null){
     var genero = document.getElementById("generoinfo").textContent
-    document.getElementById("generoinfo").innerHTML='<input type="text" value="'+genero+'" id="autor" required>'
+    document.getElementById("generoid").innerHTML='<input type="text" value="'+genero+'" id="autor" required>'
   }
 
 }

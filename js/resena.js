@@ -35,18 +35,79 @@ function resena() {
 }
 
 function nuevo(){
-    document.getElementById("resena").innerHTML='<button onclick="vuelta()" class="btn world-btn">Volver</button>'+
-      '<h5>Nueva Reseña</h5>'+
-      '<div class="informacion">'+
-      'Usuario: <label>Manuel</label><br>'+
-      'Titulo: <input type="text" id="titulo"><br>'+
-      'Autor: <input type="text"  id="autor" ><br>'+
-      'Puntuación: <input type="text"  id="puntuacion"><br>'+
-      'Descripción: <input type="text" id="descrip" ><br>'+
-        '<div id="boton_mod">'+
-        '<button onclick="guardar()" class="btn world-btn">Guardar</button>'+
+    document.getElementById("resena").innerHTML=
+
+    '<button onclick="vuelta()" class="btn world-btn">Volver</button>'+
+
+
+    '<section class="contact-area section-padding-100">'+
+        '<div class="container">'+
+            '<div class="row justify-content-center">'+
+              '<div class="col-12 col-md-10 col-lg-8">'+
+                '<div class="contact-form">'+
+                  '<h5>Nueva Reseña</h5>'+
+                  '<form action="#" method="post">'+
+                    '<div class="row">'+
+
+
+                      '<div class="col-12 col-md-6">'+
+                        '<div class="group">'+
+                          '<input type="text" name="titulo" id="titulo" required>'+
+                          '<span class="highlight"></span>'+
+                          '<span class="bar"></span>'+
+                          '<label>Titulo</label>'+
+
+                        '</div>'+
+                      '</div>'+
+
+                      '<div class="col-12 col-md-6">'+
+                        '<div class="group">'+
+                          '<input type="text" name="autor" id="autor" required>'+
+                          '<span class="highlight"></span>'+
+                          '<span class="bar"></span>'+
+                          '<label>Autor</label>'+
+
+                        '</div>'+
+                      '</div>'+
+
+                      '<div class="col-12 col-md-6">'+
+                        '<div class="group">'+
+                          '<input type="number" name="puntuacion" min="0"'+
+                          'max="5" id="puntuacion" required>'+
+                          '<span class="highlight"></span>'+
+                          '<span class="bar"></span>'+
+                          '<label>Puntuacion</label>'+
+
+                        '</div>'+
+                      '</div>'+
+
+
+                      '<div class="col-12">'+
+
+                        '<div class="group">'+
+                          '<textarea name="Text1" cols="40" rows="5"></textarea>'+
+                          '<span class="highlight"></span>'+
+                          '<span class="bar"></span>'+
+                          '<label>Descripción</label>'+
+
+                        '</div>'+
+                      '</div>'+
+
+
+
+                          '<div id="boton_mod">'+
+                            '<button onclick="guardar()" class="btn world-btn">Guardar</button>'+
+                          '</div>'+
+                        '</div>'+
+
+
+                        '</div>'+
+                '</form>'+
+              '</div>'+
+            '</div>'+
+          '</div>'+
         '</div>'+
-      '</div>'
+      '</section>'
 }
 
 function guardar(){
