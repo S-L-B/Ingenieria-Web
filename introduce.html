@@ -80,7 +80,7 @@
                     <div class="contact-form">
                         <h5>Introduce la información de un nuevo libro</h5>
                         <!-- Contact Form -->
-                        <form action="#" method="post">
+
                             <div class="row">
                                 <div class="col-12 col-md-6">
                                   <div class="group">
@@ -108,7 +108,7 @@
                                 </div>
                                 <div class="col-12 col-md-6">
                                     <div class="group">
-                                      <select name="estado" required>
+                                      <select name="estado" id="estado"  required>
                                           <option value="Sin Comprar">Sin Comprar</option>
                                           <option value="Comprado">Comprado</option>
                                           <option value="Leido">Leido</option>
@@ -155,10 +155,10 @@
                                   </div>
                                 </div>
                                 <div class="col-12">
-                                    <button onclick="vuelta()" class="btn world-btn">Introducir Libro</button>
+                                    <button onclick="introducir()" class="btn world-btn">Introducir Libro</button>
                                 </div>
                             </div>
-                        </form>
+
                     </div>
                 </div>
             </div>
@@ -214,13 +214,28 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="js/plugins.js"></script>
     <!-- Active js -->
     <script src="js/active.js"></script>
-    <script src="js/busqueda.js"></script>
 
-    <!-- Google Maps: If you want to google map, just uncomment below codes -->
-    <!--
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAwuyLRa1uKNtbgx6xAJVmWy-zADgegA2s"></script>
-    <script src="js/map-active.js"></script>
-    -->
+    <script src="js/introducir.js"></script>
+
+
+    <script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-database.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyBZ4PnHXcW7MmxdZcE9uCcFFbyL4vOZ3Ig",
+        authDomain: "ingenieriaweb-6b09b.firebaseapp.com",
+        databaseURL: "https://ingenieriaweb-6b09b.firebaseio.com",
+        projectId: "ingenieriaweb-6b09b",
+        storageBucket: "ingenieriaweb-6b09b.appspot.com",
+        messagingSenderId: "669497001591",
+        appId: "1:669497001591:web:67518aeb8610237da82872"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
 
 </body>
 

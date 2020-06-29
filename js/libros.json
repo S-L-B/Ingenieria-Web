@@ -1,6 +1,4 @@
-
-var myList = [
-  {"_id":0,"titulo":"1984","autor":["George Orwell"],"anno":"1948","estado":"Comprado"},
+[{"_id":0,"titulo":"1984","autor":["George Orwell"],"anno":"1948","estado":"Comprado"},
 {"_id":1,"titulo":"Así habló zaratustra","autor":["Nietzsche"],"anno":"1883","estado":"Comprado"},
 {"_id":2,"titulo":"Antimanual de filosofía","autor":["Michel Onfray"],"anno":"2001","estado":"Comprado"},
 {"_id":3,"titulo":"Diálogos sobre la religión natural","autor":["David Hume"],"anno":"1779","estado":"Comprado"},
@@ -304,77 +302,4 @@ var myList = [
 {"_id":301,"titulo":"Yo ya he estado aquí: ficciones de la repetición","autor":["Jordi Balló","Xavier Pérez"],"anno":"2005","estado":"Sin Comprar"},
 {"_id":302,"titulo":"Museo de la Novela de la Eterna","autor":["Macedonio Fernandéz"],"anno":"1967","estado":"Sin Comprar"},
 {"_id":303,"titulo":"Alguien voló sobre el nido del cuco","autor":["Ken Kesey"],"anno":"1962","estado":"Sin Comprar"},
-{"_id":304,"titulo":"Viaje al manicomio","autor":["Kate Millett"],"anno":"1990","estado":"Sin Comprar"},
-
-];
-
-
-/*
- <div class="groupmod group">
-    <select name="estado" required>
-      <option value="Sin Comprar">Sin Comprar</option>
-      <option value="Comprado">Comprado</option>
-      <option value="Leido">Leido</option>
-    </select>
-    <span class="highlight"></span>
-    <span class="bar"></span>
-  </div>
-*/
-
-function buildHtmlTable(selector) {
-  var columns = addAllColumnHeaders(myList, selector);
-  for (var i = 0; i < myList.length -1; i++) {
-    if(myList[i][columns[3]]=='Sin Comprar'){
-      var row$ = $('<tr/>');
-      for (var colIndex = 0; colIndex < columns.length; colIndex++) {
-        var cellValue = myList[i][columns[colIndex]];
-        if (typeof cellValue =="object" && cellValue.length != 1){
-          var aux="";
-          for (var inCell = 0; inCell < cellValue.length-1; inCell++) {
-            aux+=cellValue[inCell]+ " y "
-          }
-          aux+=cellValue[cellValue.length-1]
-        cellValue= aux
-        }
-        if (cellValue == null) cellValue = "";
-        row$.append($('<td/>').html(cellValue));
-      }
-      cellValue='<div class="load-more-btn text-center">'+
-                  '<a href="#" class="btn world-btn">X</a>'+
-                '</div>'
-      row$.append($('<td/>').html(cellValue));
-      $(selector).append(row$);
-
-    }
-  }
-}
-
-// Adds a header row to the table and returns the set of columns.
-// Need to do union of keys from all records as some records may not contain
-// all records.
-function addAllColumnHeaders(myList, selector) {
-  var columnSet = [];
-  var headerTr$ = $('<tr/>');
-
-  for (var i = 0; i < myList.length; i++) {
-    var rowHash = myList[i];
-    for (var key in rowHash) {
-      if(key == "titulo" ||
-      key == "autor" ||
-      key == "anno" ||
-      key == "estado" ||
-      key == "nombre_saga" ||
-      key == "entrega"
-      ){
-        if ($.inArray(key, columnSet) == -1) {
-          columnSet.push(key);
-          headerTr$.append($('<th/>').html(key));
-        }
-      }
-    }
-  }
-
-  $(selector).append(headerTr$);
-
-  return columnSet;
-}
+{"_id":304,"titulo":"Viaje al manicomio","autor":["Kate Millett"],"anno":"1990","estado":"Sin Comprar"}]
