@@ -10,7 +10,6 @@ var description=["Me ha encantado mucho, es muy algo diferentes a lo que he leid
 var clic = [];
 
 function mainresena(){
-  var dbs =firebase.database().ref("resena");
   var arr = [];
   var query = firebase.database().ref("resena").orderByKey();
     query.once("value")
@@ -63,7 +62,6 @@ function resena(arr) {
 
 
 function nuevoaux(){
-  var dbs =firebase.database().ref("resena");
   var arr = [];
   var query = firebase.database().ref("resena").orderByKey();
     query.once("value")
@@ -156,7 +154,8 @@ function nuevo(){
 }
 
 function guardar(arr){
-  var insert ='{"usuario": "Manuel",'+
+  var usuario =document.cookie.split("=")[1]
+  var insert ='{"usuario": "'+usuario+'",'+
       '"titulo": "'+document.getElementById("titulo").value+'",'+
       '"autor": "'+document.getElementById("autor").value+'",'+
       '"puntuacion": '+document.getElementById("puntuacion").value+","+

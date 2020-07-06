@@ -1,6 +1,5 @@
 
 function maineventos(){
-  var dbs =firebase.database().ref("eventos");
   var arr = [];
   var query = firebase.database().ref("eventos").orderByKey();
     query.once("value")
@@ -43,7 +42,6 @@ function eventos(arr) {
 
 
 function mainbuscar(){
-  var dbs =firebase.database().ref("eventos");
   var arr = [];
   var query = firebase.database().ref("eventos").orderByKey();
     query.once("value")
@@ -51,11 +49,8 @@ function mainbuscar(){
     snapshot.forEach(function(childSnapshot) {
       //var key = childSnapshot.key; // "ada"
       arr.push(childSnapshot.toJSON());
-
     });
-
   buscar(arr)
-
   });
 
 }

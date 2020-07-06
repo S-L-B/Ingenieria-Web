@@ -1,20 +1,25 @@
 
 function mainbusqueda(selector){
-  var dbs =firebase.database().ref("libros");
-  var lib =""
   var arr = [];
-  var query = firebase.database().ref("libros").orderByKey();
-    query.once("value")
-  .then(function(snapshot) {
-    snapshot.forEach(function(childSnapshot) {
-      //var key = childSnapshot.key; // "ada"
-      arr.push(childSnapshot.toJSON());
+  var usuario =document.cookie.split("=")[1]
+  if (typeof usuario == "undefined" ) {
+    document.getElementById("contenedor").innerHTML='<h1> No te has registrado</h1>'
+  }else{
+    console.log(usuario)
+    var query = firebase.database().ref("libros/"+usuario).orderByKey();
+      query.once("value")
+    .then(function(snapshot) {
+      snapshot.forEach(function(childSnapshot) {
+        //var key = childSnapshot.key; // "ada"
+        arr.push(childSnapshot.toJSON());
+
+      });
+
+    buildHtmlTable(selector,arr)
 
     });
+  }
 
-  buildHtmlTable(selector,arr)
-
-  });
 
 }
 
@@ -346,29 +351,7 @@ function addAllColumnHeaders(data, selector) {
 
 
 
-function guardar(){
-  //guardar en la base de datos
-  var titulo = document.getElementById("titulo").value;
-  var autor = document.getElementById("autor").value;
-  var anno = document.getElementById("anno").value;
-  var estado =document.getElementById("estado").value;
 
-  var entrega =document.getElementById("entrega").value;
-  var saga =document.getElementById("saga").value;
-  var editorial =document.getElementById("editorial").value;
-  var genero =document.getElementById("genero").value;
-  var dbs =firebase.database().ref("libros");
-
-
-
-  vuelta()
-  console.log(titulo)
-  console.log(autor)
-  console.log(anno)
-  console.log(estado)
-
-
-}
 
 function nuevo(){
   window.location.replace("introduce.html");

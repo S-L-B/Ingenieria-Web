@@ -7,14 +7,9 @@ function update(){
     snapshot.forEach(function(childSnapshot) {
       //var key = childSnapshot.key; // "ada"
       arr.push(childSnapshot.toJSON());
-
     });
-
   aux(arr)
-
-});
-
-  //console.log(query)
+  });
 
 }
 

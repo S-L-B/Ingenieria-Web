@@ -97,9 +97,6 @@
                                           <button onclick="newUser()"class="btn world-btn col-5 ">Crear cuenta</button>
                                       </div>
                                     </div>
-                                    <div class=newAcc>
-                                      <a href="./newAcc">Crear cuenta</a>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -153,7 +150,24 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="js/active.js"></script>
     <script src="js/delete.js"></script>
     <script src="js/cuenta.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-database.js"></script>
 
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyBZ4PnHXcW7MmxdZcE9uCcFFbyL4vOZ3Ig",
+        authDomain: "ingenieriaweb-6b09b.firebaseapp.com",
+        databaseURL: "https://ingenieriaweb-6b09b.firebaseio.com",
+        projectId: "ingenieriaweb-6b09b",
+        storageBucket: "ingenieriaweb-6b09b.appspot.com",
+        messagingSenderId: "669497001591",
+        appId: "1:669497001591:web:67518aeb8610237da82872"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
 
 </body>
 
