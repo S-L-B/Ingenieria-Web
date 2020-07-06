@@ -59,7 +59,7 @@ function aux(datos){
   }
 
   insert+="}"
-  console.log(insert)
+  //console.log(insert)
   var obj = JSON.parse(insert)
   datos.push(obj);
   var dbs =firebase.database().ref('/libros/').set(datos);

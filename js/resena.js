@@ -1,4 +1,4 @@
-var total=0;
+/*var total=0;
 var usuario=["Paco","Antonio","Eva","María","Ana"];
 var libro=["4321","Esta niebla insensata","Divina Comedia","4321","Hombres Buenos"];
 var autor=["Paul Auster","Enrique Vila-Matas","Dante","Paul Auster","Arturo Perez-Reverte"]
@@ -6,33 +6,80 @@ var puntuacion=["4","5","5","3","1"];
 var description=["Me ha encantado mucho, es muy algo diferentes a lo que he leido anteriormente.",
 "Simplemente brillante","Un clásico que todo el mundo debe leer.",
 "Prueba salto de lineaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa lineaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaalineaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaalineaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaalineaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa lineaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa lineaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa prueba prueba prueba prueba aaaaaaaaaaaaaaaa aaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-"Este autor siempre hace el mismo tipo de libros"];
+"Este autor siempre hace el mismo tipo de libros"];*/
 var clic = [];
 
-function resena_individual(i) {
-   return '<div class="col-12" id="resena_individual" >'+
-    '<div class="col-3" id="usuario">'+usuario[i]+'</div>'+
-    '<div class="col-3" id="autor">'+autor[i]+'</div>'+
-    '<div class="col-2" id="libro">'+libro[i]+'</div>'+
-    '<div class="col-2" id="puntuacion">'+puntuacion[i]+'/5</div>'+
+function mainresena(){
+  var dbs =firebase.database().ref("resena");
+  var arr = [];
+  var query = firebase.database().ref("resena").orderByKey();
+    query.once("value")
+  .then(function(snapshot) {
+    snapshot.forEach(function(childSnapshot) {
+      //var key = childSnapshot.key; // "ada"
+      arr.push(childSnapshot.toJSON());
+
+    });
+
+  resena(arr)
+
+  });
+
+}
+
+
+
+
+
+
+
+function resena_individual(i,index) {
+   return '<div class="col-12 single-blog-post" id="resena_individual" >'+
+    '<div class="col-3" id="usuario">'+i.usuario+'</div>'+
+    '<div class="col-3" id="autor">'+i.autor+'</div>'+
+    '<div class="col-2" id="libro">'+i.titulo+'</div>'+
+    '<div class="col-2" id="puntuacion">'+i.puntuacion+'/5</div>'+
     '<div class="col-2">'+
-      '<button onclick="divLogin('+i+')" id="boton_resena" class="btn world-btn">+'+
+      '<button onclick="divLogin('
+        +index+','+
+        '\''+i.comentario+'\''+
+        ')" id="boton_resena" class="btn world-btn">+'+
       '</button>'+
     '</div>'+
-    '<div id="extra_resena'+i+'" class="extra_resena col-12" height:25px;">'+
+    '<div id="extra_resena'+index+'" class="single-blog-post extra_resena col-12" >'+
     '</div>'+
   '</div>'
 }
 
-function resena() {
-  total=usuario.length
+function resena(arr) {
+  total=arr.length
   document.getElementById("resena").innerHTML='<button onclick="nuevo()" id="boton_nuevo"'+
   ' class="btn world-btn">Nueva Reseña</button>'
   for (var i = 0; i < total; i++) {
-    document.getElementById("resena").innerHTML += resena_individual(i);
+    document.getElementById("resena").innerHTML += resena_individual(arr[i],i);
   }
   clic = new Array(total);
 }
+
+
+function nuevoaux(){
+  var dbs =firebase.database().ref("resena");
+  var arr = [];
+  var query = firebase.database().ref("resena").orderByKey();
+    query.once("value")
+  .then(function(snapshot) {
+    snapshot.forEach(function(childSnapshot) {
+      //var key = childSnapshot.key; // "ada"
+      arr.push(childSnapshot.toJSON());
+
+    });
+
+  guardar(arr)
+
+  });
+
+}
+
 
 function nuevo(){
     document.getElementById("resena").innerHTML=
@@ -46,7 +93,6 @@ function nuevo(){
               '<div class="col-12 col-md-10 col-lg-8">'+
                 '<div class="contact-form">'+
                   '<h5>Nueva Reseña</h5>'+
-                  '<form action="#" method="post">'+
                     '<div class="row">'+
 
 
@@ -72,7 +118,7 @@ function nuevo(){
 
                       '<div class="col-12 col-md-6">'+
                         '<div class="group">'+
-                          '<input type="number" name="puntuacion" min="0"'+
+                          '<input type="number" name="puntuacion" id="puntuacion" min="0"'+
                           'max="5" id="puntuacion" required>'+
                           '<span class="highlight"></span>'+
                           '<span class="bar"></span>'+
@@ -85,7 +131,7 @@ function nuevo(){
                       '<div class="col-12">'+
 
                         '<div class="group">'+
-                          '<textarea name="Text1" cols="40" rows="5"></textarea>'+
+                          '<textarea name="Text1" cols="40" id="comentario" rows="5"></textarea>'+
                           '<span class="highlight"></span>'+
                           '<span class="bar"></span>'+
                           '<label>Descripción</label>'+
@@ -96,13 +142,12 @@ function nuevo(){
 
 
                           '<div id="boton_mod">'+
-                            '<button onclick="guardar()" class="btn world-btn">Guardar</button>'+
+                            '<button onclick="nuevoaux()" class="btn world-btn">Guardar</button>'+
                           '</div>'+
                         '</div>'+
 
 
                         '</div>'+
-                '</form>'+
               '</div>'+
             '</div>'+
           '</div>'+
@@ -110,23 +155,29 @@ function nuevo(){
       '</section>'
 }
 
-function guardar(){
-  usuario.push("Manuel");
-  libro.push(document.getElementById("titulo").value);
-  autor.push(document.getElementById("autor").value);
-  puntuacion.push(document.getElementById("puntuacion").value);
-  description.push(document.getElementById("descrip").value);
-  resena();
+function guardar(arr){
+  var insert ='{"usuario": "Manuel",'+
+      '"titulo": "'+document.getElementById("titulo").value+'",'+
+      '"autor": "'+document.getElementById("autor").value+'",'+
+      '"puntuacion": '+document.getElementById("puntuacion").value+","+
+      '"comentario": "'+document.getElementById("comentario").value+'"'+
+      "}"
+  //console.log(insert)
+  var obj = JSON.parse(insert)
+  arr.push(obj);
+  var dbs =firebase.database().ref('/resena/').set(arr);
+
+  vuelta();
 }
 
 function vuelta() {
   window.location.replace("resena.html");
 }
 
-function divLogin(i){
+function divLogin(i,comentario){
   var cambio="extra_resena"+i;
    if(clic[i]!=1){
-   document.getElementById(cambio).innerHTML = cadenaAdapt(description[i]);
+   document.getElementById(cambio).innerHTML = comentario;
    document.getElementById(cambio).style.background = "cornflowerblue";
    //document.getElementById(cambio).style.opacity = ".0";
    clic[i] = 1;
@@ -138,23 +189,4 @@ function divLogin(i){
       //document.getElementById(cambio).style.opacity = "1";
     clic[i] += 1;
    }
-}
-
-function cadenaAdapt(i){
-  var lon=i.length
-  var newCadena="";
-  var index=0;
-  var fila=140;
-  if (lon > fila) {
-    while (lon > fila) {
-      newCadena+=i.substr(index,fila)+"<br>";
-      index+=fila;
-      lon-=fila;
-    }
-    newCadena+=i.substr(index,i.length+1);
-    return newCadena;
-  }else {
-    newCadena=i;
-    return newCadena;
-  }
 }
