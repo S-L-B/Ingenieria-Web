@@ -80,6 +80,11 @@ function nuevoaux(){
 
 
 function nuevo(){
+
+  var usuario =document.cookie.split("=")[1]
+  if (typeof usuario == "undefined" ) {
+    document.getElementById("resena").innerHTML='<h1> No te has registrado</h1>'
+  }else{
     document.getElementById("resena").innerHTML=
 
     '<button onclick="vuelta()" class="btn world-btn">Volver</button>'+
@@ -151,6 +156,7 @@ function nuevo(){
           '</div>'+
         '</div>'+
       '</section>'
+    }
 }
 
 function guardar(arr){

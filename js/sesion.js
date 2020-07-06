@@ -43,6 +43,10 @@ function bodylookBooks(){
   mainbusqueda('#excelDataTable')
 }
 
+
+
+
+
 function bodyresena(){
   estadosesion()
   mainresena()
