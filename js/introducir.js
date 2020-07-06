@@ -1,7 +1,7 @@
 function introducir(){
   var arr = [];
-
-  var query = firebase.database().ref("libros").orderByKey();
+  var usuario =document.cookie.split("=")[1]
+  var query = firebase.database().ref("libros/"+usuario).orderByKey();
     query.once("value")
   .then(function(snapshot) {
     snapshot.forEach(function(childSnapshot) {
@@ -19,7 +19,11 @@ function introducir(){
 }
 
 function aux(datos){
-  index=datos[datos.length-1]._id+1
+  if (datos.length == 0) {
+    index= 0
+  }else {
+    index=datos[datos.length-1]._id+1
+  }
   //guardar en la base de datos
   var titulo = document.getElementById("titulo").value;
   var autor = document.getElementById("autor").value;
@@ -60,9 +64,11 @@ function aux(datos){
 
   insert+="}"
   //console.log(insert)
+
   var obj = JSON.parse(insert)
   datos.push(obj);
-  var dbs =firebase.database().ref('/libros/').set(datos);
+  var usuario =document.cookie.split("=")[1]
+  var dbs =firebase.database().ref('/libros/'+usuario).set(datos);
   vuelta()
 }
 

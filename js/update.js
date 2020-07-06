@@ -1,7 +1,7 @@
 function update(){
   var arr = [];
-
-  var query = firebase.database().ref("libros").orderByKey();
+  var usuario =document.cookie.split("=")[1]
+  var query = firebase.database().ref("libros/"+usuario).orderByKey();
     query.once("value")
   .then(function(snapshot) {
     snapshot.forEach(function(childSnapshot) {
@@ -63,7 +63,8 @@ function cambio(datos,id){
     if(editorial != null && typeof editorial!== "undefined" && editorial.length != 0){
       datos[id].editorial=editorial.value
     }
-    var dbs =firebase.database().ref('/libros/').set(datos);
+    var usuario =document.cookie.split("=")[1]
+    var dbs =firebase.database().ref('/libros/'+usuario).set(datos);
     vuelta()
 }
 
