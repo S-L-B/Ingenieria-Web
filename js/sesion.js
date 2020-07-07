@@ -58,7 +58,7 @@ function bodyresena(){
 function sesioneventos(){
   var usuario =document.cookie.split("=")[1]
   if (usuario == "admin" ) {
-    document.getElementById("eventosadmin").innerHTML='<button onclick="mainbuscar()" class="btn world-btn">Nuevo Evento</button>'
+    document.getElementById("eventosadmin").innerHTML='<button onclick="newevento()" class="btn world-btn">Nuevo Evento</button>'
   }
 }
 
