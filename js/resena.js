@@ -34,6 +34,7 @@ function mainresena(){
 
 function resena_individual(i,index) {
    return '<div class="col-12 single-blog-post" id="resena_individual" >'+
+   '<br>'+
     '<div class="col-3" id="usuario">'+i.usuario+'</div>'+
     '<div class="col-3" id="autor">'+i.autor+'</div>'+
     '<div class="col-2" id="libro">'+i.titulo+'</div>'+
@@ -183,7 +184,7 @@ function divLogin(i,comentario){
   var cambio="extra_resena"+i;
    if(clic[i]!=1){
    document.getElementById(cambio).innerHTML = comentario;
-   document.getElementById(cambio).style.background = "cornflowerblue";
+   document.getElementById(cambio).style.background = "#dcfcd4";
    //document.getElementById(cambio).style.opacity = ".0";
    clic[i] = 1;
    } else{
